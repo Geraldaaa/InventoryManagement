@@ -38,6 +38,9 @@ public class Order {
     public Order() {
     }
 
+    public Order(String pending, String date) {
+    }
+
     public Long getId() {
         return id;
     }
@@ -62,7 +65,7 @@ public class Order {
         this.submittedDate = submittedDate;
     }
 
-    public Enum getStatus() {
+    public OrderStatus getStatus() {
         return status;
     }
 
