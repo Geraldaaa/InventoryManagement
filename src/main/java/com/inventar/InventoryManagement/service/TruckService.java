@@ -1,4 +1,43 @@
 package com.inventar.InventoryManagement.service;
 
+
+import com.inventar.InventoryManagement.model.Truck;
+import com.inventar.InventoryManagement.repository.TruckRepository;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
 public class TruckService {
+
+    private TruckRepository truckRepository;
+
+    public TruckService(TruckRepository truckRepository){
+        this.truckRepository = truckRepository;
+    }
+
+    public void shtoTruck(Truck truck){
+        truckRepository.save(truck);
+    }
+
+    public Truck updateTruck(Long id, Truck updatedTruck){
+        return truckRepository.findById(id).map(truck -> {
+
+            truck.setChassisNumber(updatedTruck.getChassisNumber());
+            truck.setDeliveries(updatedTruck.getDeliveries());
+            truck.setContainerVolume(updatedTruck.getContainerVolume());
+            truck.setLicensePlate(updatedTruck.getLicensePlate());
+
+            return truckRepository.save(truck);
+
+        }).orElseThrow();
+    }
+
+    public List<Truck> lexoTrucks(){
+        return truckRepository.findAll();
+    }
+
+    public void fshiTruck(Long id){
+        truckRepository.deleteById(id);
+    }
 }

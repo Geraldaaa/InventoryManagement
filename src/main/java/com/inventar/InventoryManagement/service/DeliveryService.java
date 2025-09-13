@@ -3,6 +3,8 @@ package com.inventar.InventoryManagement.service;
 import com.inventar.InventoryManagement.model.Delivery;
 import com.inventar.InventoryManagement.repository.DeliveryRepository;
 
+import java.util.List;
+
 public class DeliveryService {
 
     private DeliveryRepository deliveryRepository;
@@ -28,5 +30,13 @@ public class DeliveryService {
             return deliveryRepository.save(delivery);
 
         }).orElseThrow(() -> new RuntimeException("Delivery not found"));
+    }
+
+    public void deleteDelivery(Long id){
+        deliveryRepository.deleteById(id);
+    }
+
+    public List<Delivery> lexoDeliveries(){
+        return deliveryRepository.findAll();
     }
 }
