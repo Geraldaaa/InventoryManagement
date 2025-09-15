@@ -63,4 +63,12 @@ public class Item {
     public void setPackageVolume(Double packageVolume) {
         this.packageVolume = packageVolume;
     }
+
+    public Inventari getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventari inventory) {
+        this.inventory = inventory;
+    }
 }

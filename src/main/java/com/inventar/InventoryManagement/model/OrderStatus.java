@@ -3,5 +3,6 @@ package com.inventar.InventoryManagement.model;
 public enum OrderStatus {
 
     CREATED,
-    APPRUVED;
+    APPRUVED,
+    PENDING;
 }

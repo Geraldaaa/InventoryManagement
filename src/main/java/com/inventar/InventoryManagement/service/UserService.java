@@ -3,6 +3,7 @@ package com.inventar.InventoryManagement.service;
 import com.inventar.InventoryManagement.model.User;
 import com.inventar.InventoryManagement.repository.UserRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,10 +17,13 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+
+    @Transactional
     public void shtoUser(User user){
         userRepository.save(user);
     }
 
+    @Transactional
     public User updateUser(Long id, User updatedUser){
         return userRepository.findById(id).map(user -> {
 
@@ -37,10 +41,12 @@ public class UserService {
         }).orElseThrow();
     }
 
+    @Transactional
     public List<User> lexoUsers(){
         return userRepository.findAll();
     }
 
+    @Transactional
     public void fshiUser(Long id){
         userRepository.deleteById(id);
     }

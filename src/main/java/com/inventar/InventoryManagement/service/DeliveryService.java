@@ -2,9 +2,12 @@ package com.inventar.InventoryManagement.service;
 
 import com.inventar.InventoryManagement.model.Delivery;
 import com.inventar.InventoryManagement.repository.DeliveryRepository;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
 public class DeliveryService {
 
     private DeliveryRepository deliveryRepository;
@@ -15,10 +18,12 @@ public class DeliveryService {
 
     }
 
+    @Transactional
     public void shtoDelivery(Delivery delivery){
         deliveryRepository.save(delivery);
     }
 
+    @Transactional
     public Delivery updateDelivery(Long id, Delivery upatedDelivery){
 
         return deliveryRepository.findById(id).map(delivery -> {
@@ -32,10 +37,12 @@ public class DeliveryService {
         }).orElseThrow(() -> new RuntimeException("Delivery not found"));
     }
 
+    @Transactional
     public void deleteDelivery(Long id){
         deliveryRepository.deleteById(id);
     }
 
+    @Transactional
     public List<Delivery> lexoDeliveries(){
         return deliveryRepository.findAll();
     }

@@ -4,6 +4,7 @@ package com.inventar.InventoryManagement.service;
 import com.inventar.InventoryManagement.model.Order;
 import com.inventar.InventoryManagement.repository.OrderRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,14 +18,17 @@ public class OrderService {
         this.orderRepository = orderRepository;
     }
 
+    @Transactional
     public Order createOrder(Order order) {
         return orderRepository.save(order);
     }
 
+    @Transactional
     public List<Order> getAllOrders() {
         return orderRepository.findAll();
     }
 
+    @Transactional
     public Order updateOrder(Long id, Order updatedOrder) {
         return orderRepository.findById(id).map(order -> {
 
@@ -41,6 +45,7 @@ public class OrderService {
         }).orElseThrow(() -> new RuntimeException("Order not found"));
     }
 
+    @Transactional
     public void deleteOrder(Long id) {
         orderRepository.deleteById(id);
     }

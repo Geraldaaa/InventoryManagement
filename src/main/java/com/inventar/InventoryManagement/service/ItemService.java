@@ -3,6 +3,7 @@ package com.inventar.InventoryManagement.service;
 import com.inventar.InventoryManagement.model.Item;
 import com.inventar.InventoryManagement.repository.ItemRepositori;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,10 +18,12 @@ public class ItemService {
         this.itemRepositori = itemRepositori;
     }
 
+    @Transactional
     public void shtoItem(Item item){
         itemRepositori.save(item);
     }
 
+    @Transactional
     public Item updateInventari(Long id, Item updatedItem){
         return itemRepositori.findById(id).map(item -> {
 
@@ -34,10 +37,12 @@ public class ItemService {
         }).orElseThrow();
     }
 
+    @Transactional
     public List<Item> lexoItems(){
        return itemRepositori.findAll();
     }
 
+    @Transactional
     public void fshiItems(Long id){
         itemRepositori.deleteById(id);
     }

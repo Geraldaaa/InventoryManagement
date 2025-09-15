@@ -4,6 +4,7 @@ package com.inventar.InventoryManagement.service;
 import com.inventar.InventoryManagement.model.OrderItem;
 import com.inventar.InventoryManagement.repository.OrderItemRepository;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -16,10 +17,12 @@ public class OrderItemService {
         this.orderItemRepository = orderItemRepository;
     }
 
+    @Transactional
     public void shtoOrderItem(OrderItem orderItem){
         orderItemRepository.save(orderItem);
     }
 
+    @Transactional
     public OrderItem updateOrderItems(Long id, OrderItem updatedOrderItem){
         return orderItemRepository.findById(id).map(orderItem -> {
 
@@ -35,10 +38,12 @@ public class OrderItemService {
         }).orElseThrow();
     }
 
-    public List<OrderItem> lexoItems(){
+    @Transactional
+    public List<OrderItem> lexoOrderItems(){
         return orderItemRepository.findAll();
     }
 
+    @Transactional
     public void fshiItems(Long id){
         orderItemRepository.deleteById(id);
     }
