@@ -1,47 +1,46 @@
-package com.inventar.InventoryManagement.service;
+package com.inventar.InventoryManagement.service.impl;
 
 import com.inventar.InventoryManagement.model.Delivery;
 import com.inventar.InventoryManagement.repository.DeliveryRepository;
+import com.inventar.InventoryManagement.service.DeliveryService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
-public class DeliveryService {
+public class DeliveryServiceImpl implements DeliveryService {
 
-    private DeliveryRepository deliveryRepository;
+    private final DeliveryRepository deliveryRepository;
 
-    public DeliveryService(DeliveryRepository deliveryRepository){
-
+    public DeliveryServiceImpl(DeliveryRepository deliveryRepository){
         this.deliveryRepository = deliveryRepository;
-
     }
 
+    @Override
     @Transactional
     public void shtoDelivery(Delivery delivery){
         deliveryRepository.save(delivery);
     }
 
+    @Override
     @Transactional
-    public Delivery updateDelivery(Long id, Delivery upatedDelivery){
-
+    public Delivery updateDelivery(Long id, Delivery updatedDelivery){
         return deliveryRepository.findById(id).map(delivery -> {
-
-            delivery.setDeliveryDate(upatedDelivery.getDeliveryDate());
-            delivery.setOrders(upatedDelivery.getOrders());
-            delivery.setTruck(upatedDelivery.getTruck());
-
+            delivery.setDeliveryDate(updatedDelivery.getDeliveryDate());
+            delivery.setOrders(updatedDelivery.getOrders());
+            delivery.setTruck(updatedDelivery.getTruck());
             return deliveryRepository.save(delivery);
-
         }).orElseThrow(() -> new RuntimeException("Delivery not found"));
     }
 
+    @Override
     @Transactional
     public void deleteDelivery(Long id){
         deliveryRepository.deleteById(id);
     }
 
+    @Override
     @Transactional
     public List<Delivery> lexoDeliveries(){
         return deliveryRepository.findAll();

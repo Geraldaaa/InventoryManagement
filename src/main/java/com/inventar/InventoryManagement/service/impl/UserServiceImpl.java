@@ -1,4 +1,4 @@
-package com.inventar.InventoryManagement.service;
+package com.inventar.InventoryManagement.service.impl;
 
 import com.inventar.InventoryManagement.model.User;
 import com.inventar.InventoryManagement.repository.UserRepository;
@@ -8,12 +8,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class UserService {
+public class UserServiceImpl {
 
 
     private UserRepository userRepository;
 
-    public UserService(UserRepository userRepository){
+    public UserServiceImpl(UserRepository userRepository){
         this.userRepository = userRepository;
     }
 

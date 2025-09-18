@@ -1,4 +1,4 @@
-package com.inventar.InventoryManagement.service;
+package com.inventar.InventoryManagement.service.impl;
 
 import com.inventar.InventoryManagement.model.Item;
 import com.inventar.InventoryManagement.repository.ItemRepositori;
@@ -8,13 +8,13 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-public class ItemService {
+public class ItemServiceImpl {
 
 
     private ItemRepositori itemRepositori;
 
 
-    public ItemService(ItemRepositori itemRepositori){
+    public ItemServiceImpl(ItemRepositori itemRepositori){
         this.itemRepositori = itemRepositori;
     }
 

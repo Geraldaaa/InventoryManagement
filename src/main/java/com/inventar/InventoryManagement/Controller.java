@@ -1,4 +1,4 @@
-package com.inventar.InventoryManagement;
+/*package com.inventar.InventoryManagement;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,4 +9,4 @@ public class Controller {
     public String home() {
         return "index";
     }
-}
+}*/
