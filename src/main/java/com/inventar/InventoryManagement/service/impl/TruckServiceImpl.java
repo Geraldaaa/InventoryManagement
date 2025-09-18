@@ -19,8 +19,8 @@ public class TruckServiceImpl implements TruckService {
 
     @Override
     @Transactional
-    public void shtoTruck(Truck truck){
-        truckRepository.save(truck);
+    public Truck shtoTruck(Truck truck){
+        return truckRepository.save(truck);
     }
 
     @Override

@@ -19,8 +19,8 @@ public class DeliveryServiceImpl implements DeliveryService {
 
     @Override
     @Transactional
-    public void shtoDelivery(Delivery delivery){
-        deliveryRepository.save(delivery);
+    public Delivery shtoDelivery(Delivery delivery){
+        return deliveryRepository.save(delivery);
     }
 
     @Override

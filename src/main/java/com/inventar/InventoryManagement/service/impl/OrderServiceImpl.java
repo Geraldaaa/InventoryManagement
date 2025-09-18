@@ -30,7 +30,7 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     @Transactional
-    public OrderDTO krijoOrder(Long userId, CreateOrderDTO dto) {
+    public OrderDTO krijoOrder(Long userId, OrderDTO dto) {
         User user = userRepository.findById(userId)
                 .orElseThrow();
 
