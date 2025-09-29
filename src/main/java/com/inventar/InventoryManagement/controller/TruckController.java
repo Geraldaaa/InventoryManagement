@@ -34,7 +34,6 @@ public class TruckController {
     }
 
 
-
     @PutMapping("/{id}")
     public ResponseEntity<Truck> updateTruck(@PathVariable Long id,@RequestBody Truck updatedTruck){
         return ResponseEntity.ok(truckService.updateTruck(id,updatedTruck));
@@ -46,7 +45,6 @@ public class TruckController {
         truckService.fshiTruck(id);
         return ResponseEntity.noContent().build();
     }
-
 
 
 

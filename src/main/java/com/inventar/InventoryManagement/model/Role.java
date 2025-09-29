@@ -1,5 +1,11 @@
 package com.inventar.InventoryManagement.model;
 
 public enum Role {
-    CLIENT, MANAGER, ADMIN;
+
+
+
+        ROLE_USER,
+        ROLE_ADMIN,
+        ROLE_MANAGER;
+
 }

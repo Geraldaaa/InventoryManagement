@@ -47,7 +47,7 @@ public class UserServiceImpl {
     }
 
     @Transactional
-    public void fshiUser(Long id){
+    public void deleteUser(Long id){
         userRepository.deleteById(id);
     }
 

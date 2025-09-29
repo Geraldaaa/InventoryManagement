@@ -207,4 +207,21 @@ public class OrderServiceImpl implements OrderService {
                 }).collect(Collectors.toList()));
         return dto;
     }
+
+
+    public OrderRepository getOrderRepository() {
+        return orderRepository;
+    }
+
+    public UserRepository getUserRepository() {
+        return userRepository;
+    }
+
+    public OrderItemRepository getOrderItemRepository() {
+        return orderItemRepository;
+    }
+
+    public ItemRepositori getItemRepository() {
+        return itemRepository;
+    }
 }

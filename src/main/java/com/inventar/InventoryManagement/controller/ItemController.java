@@ -31,9 +31,7 @@ public class ItemController {
     @GetMapping("/{id}")
     public ResponseEntity<ItemDTO> getItemById(@PathVariable Long id){
         ItemDTO item = itemService.getItemById(id);
-        return item != null
-                ? ResponseEntity.ok(item)
-                : ResponseEntity.notFound().build();
+        return item != null ? ResponseEntity.ok(item) : ResponseEntity.notFound().build();
     }
 
 

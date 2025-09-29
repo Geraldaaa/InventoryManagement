@@ -3,7 +3,6 @@ package com.inventar.InventoryManagement.controller;
 
 import com.inventar.InventoryManagement.model.Delivery;
 import com.inventar.InventoryManagement.service.DeliveryService;
-import lombok.Lombok;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +29,6 @@ public class DeliveryController {
         return ResponseEntity.ok(deliveryService.lexoDeliveries());
     }
 
-
     @PutMapping("/{id}")
     public ResponseEntity<Delivery> updateDelivery(@PathVariable Long id,@RequestBody Delivery updatedDelivery){
         return ResponseEntity.ok(deliveryService.updateDelivery(id,updatedDelivery));
@@ -41,7 +39,6 @@ public class DeliveryController {
         deliveryService.deleteDelivery(id);
         return ResponseEntity.noContent().build();
     }
-
 
 
 

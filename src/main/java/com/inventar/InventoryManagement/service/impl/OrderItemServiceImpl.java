@@ -82,4 +82,16 @@ public class OrderItemServiceImpl implements OrderItemService {
         return dto;
     }
 
+
+    public OrderItemRepository getOrderItemRepository() {
+        return orderItemRepository;
+    }
+
+    public OrderRepository getOrderRepository() {
+        return orderRepository;
+    }
+
+    public ItemRepositori getItemRepository() {
+        return itemRepository;
+    }
 }
