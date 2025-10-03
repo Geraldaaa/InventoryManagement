@@ -21,12 +21,12 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO userDTO){
-       return ResponseEntity.ok(userService.createUser(userDTO));
+       return ResponseEntity.ok(userService.shtoUser(userDTO));
     }
 
     @GetMapping
     public ResponseEntity<List<UserDTO>> readUsers(){
-        return ResponseEntity.ok(userService.getAllUsers());
+        return ResponseEntity.ok(userService.lexoUsers());
     }
 
     @PutMapping("/{id}")

@@ -3,6 +3,7 @@ package com.inventar.InventoryManagement.model;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,8 +29,8 @@ public class Order {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
-    private List<OrderItem> orderItems;
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderItem> orderItems = new ArrayList<>();
 
     @ManyToOne
     @JoinColumn(name = "delivery_id")

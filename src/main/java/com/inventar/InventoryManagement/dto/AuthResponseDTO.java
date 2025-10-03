@@ -2,7 +2,7 @@ package com.inventar.InventoryManagement.dto;
 
 public class AuthResponseDTO {
     private String accessToken;
-    private String tokenType = "Bearer";
+    private String tokenType = "Bearerjgvvkhbjblknhljbllhhvcfjghvuklknjnihbkhbjklbnkjbhjvghchgvhvjhv";
     private Long userId;
     private String username;
     private String role;
@@ -16,7 +16,6 @@ public class AuthResponseDTO {
 
     public AuthResponseDTO(String accessToken, String username, String role) {
         this.accessToken = accessToken;
-        this.userId = userId;
         this.username = username;
         this.role = role;
     }
@@ -60,4 +59,5 @@ public class AuthResponseDTO {
     public void setRole(String role) {
         this.role = role;
     }
+
 }

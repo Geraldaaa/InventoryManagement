@@ -7,6 +7,7 @@ import com.inventar.InventoryManagement.service.OrderService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -19,7 +20,8 @@ public class OrderServiceImpl implements OrderService {
     private final OrderItemRepository orderItemRepository;
     private final ItemRepositori itemRepository;
 
-    public OrderServiceImpl(OrderRepository orderRepository, UserRepository userRepository, OrderItemRepository orderItemRepository, ItemRepositori itemRepository) {
+    public OrderServiceImpl(OrderRepository orderRepository, UserRepository userRepository,
+                            OrderItemRepository orderItemRepository, ItemRepositori itemRepository) {
         this.orderRepository = orderRepository;
         this.userRepository = userRepository;
         this.orderItemRepository = orderItemRepository;
@@ -39,6 +41,7 @@ public class OrderServiceImpl implements OrderService {
         order.setStatus(OrderStatus.CREATED);
         order.setSubmittedDate(new java.util.Date());
         order.setOrderNumber(generateOrderNumber());
+        order.setOrderItems(new ArrayList<>()); // ✅ inicializo listën për orderItems
 
         orderRepository.save(order);
         return mapToDTO(order);
@@ -57,6 +60,10 @@ public class OrderServiceImpl implements OrderService {
         orderItem.setItem(item);
         orderItem.setRequestedQuantity(dto.getQuantity());
         orderItem.setOrder(order);
+
+        if (order.getOrderItems() == null) {
+            order.setOrderItems(new ArrayList<>());
+        }
 
         order.getOrderItems().add(orderItem);
         orderRepository.save(order);
@@ -128,7 +135,6 @@ public class OrderServiceImpl implements OrderService {
                 .collect(Collectors.toList());
     }
 
-
     // ---------------- Manager Actions ----------------
 
     @Override
@@ -166,7 +172,6 @@ public class OrderServiceImpl implements OrderService {
                 .toList();
     }
 
-
     // ---------------- Helpers ----------------
 
     private Order validateOrderOwnership(Long orderId, Long userId) {
@@ -194,7 +199,10 @@ public class OrderServiceImpl implements OrderService {
         dto.setOrderNumber(order.getOrderNumber());
         dto.setStatus(order.getStatus());
         dto.setSubmittedDate(order.getSubmittedDate());
-        dto.setOrderItems(order.getOrderItems().stream()
+
+        // ✅ Defensive null check
+        List<OrderItem> items = order.getOrderItems() != null ? order.getOrderItems() : new ArrayList<>();
+        dto.setOrderItems(items.stream()
                 .map(oi -> {
                     OrderItemDTO oItem = new OrderItemDTO();
                     oItem.setId(oi.getId());
@@ -204,10 +212,11 @@ public class OrderServiceImpl implements OrderService {
                     oItem.setRequestedQuantity(oi.getRequestedQuantity());
                     oItem.setItemId(oi.getItem() != null ? oi.getItem().getId() : null);
                     return oItem;
-                }).collect(Collectors.toList()));
+                })
+                .collect(Collectors.toList()));
+
         return dto;
     }
-
 
     public OrderRepository getOrderRepository() {
         return orderRepository;
