@@ -14,9 +14,4 @@ public interface ItemService {
     ItemDTO updateItem(Long id, ItemDTO dto);
     void deleteItem(Long id);
 
-    // Methods using entity (for internal use)
-    void shtoItem(Item item);
-    Item updateItem(Long id, Item updatedItem);
-    List<Item> lexoItems();
-    void fshiItems(Long id);
 }

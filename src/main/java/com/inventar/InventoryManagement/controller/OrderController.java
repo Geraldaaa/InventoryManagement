@@ -19,7 +19,7 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    // ---------------- Client Actions ----------------
+    // ---------------- Client Actions ----------------*---------------------*-----------------------------*------------------------------*-----------------
 
     @PostMapping("/create/{userId}")
     public OrderDTO createOrder(@PathVariable Long userId, @RequestBody OrderDTO dto) {
@@ -59,12 +59,11 @@ public class OrderController {
     }
 
     @GetMapping("/{userId}/list")
-    public List<OrderDTO> getOrdersForUser(@PathVariable Long userId,
-                                           @RequestParam(required = false) OrderStatus status) {
+    public List<OrderDTO> getOrdersForUser(@PathVariable Long userId, @RequestParam(required = false) OrderStatus status) {
         return orderService.getOrdersForUser(userId, Optional.ofNullable(status));
     }
 
-    // ---------------- Manager Actions ----------------
+    // ---------------- Manager Actions -------------------------------------+------------------------------------+---------+---------------------------------------
 
     @PutMapping("/approve/{managerId}/{orderId}")
     public OrderDTO approveOrder(@PathVariable Long managerId, @PathVariable Long orderId) {
