@@ -27,9 +27,4 @@ The system ensures data consistency, scalability, and maintainability through th
 **RESTful API:** Provides structured endpoints for future integration with web or mobile clients.
 
 **Technologies Used**
-Programming Language:	Java 
-Framework:	Spring Boot
-ORM:	Hibernate
-Database:	MySQL
-Build Tool:	Maven
-Version Control:	Git & GitHub
+Java, Spring Boot, Hibernate, MySQL,	Maven, Git & GitHub
