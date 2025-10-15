@@ -6,23 +6,27 @@ The system ensures data consistency, scalability, and maintainability through th
 
 **Key Features**
 
-Product Management: Create, update, and delete product records with relevant details (name, category, quantity, price, etc.).
+**Role-Based Access Control (RBAC):**
 
-Role Orienteded system: Client, Manager, Admin
+**Admin:** Full control over system data, including user and role management.
 
-Stock Control: Track product quantities and update stock levels after each transaction.
+**Manager**: Manages products, suppliers, and transactions.
 
-Supplier Management: Store and maintain supplier information for better inventory coordination.
+**Client**: Can view product availability and request stock.
 
-Transaction Logging: Record product inflow (purchases) and outflow (sales).
+**Product** **Management**: Add, edit, delete, and search products by category, price, or availability.
 
-RESTful Endpoints: Provide clean and consistent APIs for integration with a frontend or other services.
+**Supplier** **Management**: Maintain supplier details and relationships.
 
-Data Persistence: Managed via Hibernate ORM with entity relationships and cascading rules.
+**Transaction** **Management**: Record and monitor inventory inflows (purchases) and outflows (sales).
 
-Error Handling & Validation: Centralized exception handling and request validation for reliability and data integrity.
+**Stock** **Tracking**: Real-time stock updates with low-stock alerts.
 
-Technologies Used
+**Data** **Validation**: Ensures reliable and consistent data through entity-level validation.
+
+**RESTful API:** Provides structured endpoints for future integration with web or mobile clients.
+
+**Technologies Used**
 Programming Language:	Java 
 Framework:	Spring Boot
 ORM:	Hibernate
