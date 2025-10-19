@@ -1,30 +1,77 @@
-**Inventory Management System (Backend)**
+# **Inventory Management System (Java Spring Boot, Hibernate, MySQL)**
 
-The Inventory Management System is a backend application designed to manage and organize product inventory efficiently.
-It provides a structured and secure way to handle essential operations such as product registration, stock updates, supplier tracking, and transaction management.
-The system ensures data consistency, scalability, and maintainability through the use of Spring Framework, Hibernate, and MySQL as the relational database.
+## **Overview**
+This project represents an **Inventory Management System** built using **Java Spring Boot**, following clean architecture principles with a modular and layered structure.  
+It allows for complete management of items, orders, deliveries, trucks, and users — supporting secure authentication and role-based access control.
 
-**Key Features**
+---
 
-**Role-Based Access Control (RBAC):**
+## **Features**
+- **Item Management** – Create, update, delete, and retrieve items in inventory  
+- **Order Management** – Handle customer orders, order items, and statuses  
+- **Delivery Tracking** – Manage deliveries and associated trucks  
+- **User Authentication** – Secure login/register using JWT tokens  
+- **Role-Based Access Control** – Supports roles like *Admin*, *Manager*, and *User*  
+- **RESTful APIs** with full CRUD functionality  
+- **Swagger Integration** for API documentation  
+- **MySQL Data Persistence** with **Spring Data JPA (Hibernate)**  
 
-**Admin:** Full control over system data, including user and role management.
+---
 
-**Manager**: Manages products, suppliers, and transactions.
+## **Technologies Used**
+- **Java 17** – Core programming language  
+- **Spring Boot** – Application framework  
+- **Spring Security + JWT** – Authentication & authorization  
+- **Hibernate / JPA** – ORM for database interaction  
+- **MySQL** – Relational database  
+- **Maven** – Dependency management  
+- **Swagger / OpenAPI** – API documentation  
+- **REST Architecture** – Modular and scalable backend structure  
 
-**Client**: Can view product availability and request stock.
+---
 
-**Product** **Management**: Add, edit, delete, and search products by category, price, or availability.
+## **Main Components**
 
-**Supplier** **Management**: Maintain supplier details and relationships.
+### **Configuration**
+- `PasswordConfig.java` – Configures password encoding  
+- `SecurityConfig.java` – Manages authentication and role access  
+- `SwaggerConfig.java` – Enables Swagger documentation  
+- `WebConfig.java` – Configures web application CORS and global settings  
 
-**Transaction** **Management**: Record and monitor inventory inflows (purchases) and outflows (sales).
+### **Controllers**
+- `AuthController.java` – Handles authentication requests  
+- `UserController.java` – Manages user accounts  
+- `ItemController.java`, `InventariController.java` – Item and inventory endpoints  
+- `OrderController.java`, `OrderItemController.java` – Manage orders and order items  
+- `DeliveryController.java`, `TruckController.java` – Delivery and truck management  
 
-**Stock** **Tracking**: Real-time stock updates with low-stock alerts.
+### **Models**
+- `User.java`, `Role.java` – Represent system users and roles  
+- `Item.java`, `Inventari.java` – Inventory and item entities  
+- `Order.java`, `OrderItem.java`, `OrderStatus.java` – Order domain models  
+- `Delivery.java`, `Truck.java` – Delivery and transportation entities  
 
-**Data** **Validation**: Ensures reliable and consistent data through entity-level validation.
+### **Repositories**
+- `UserRepository.java`, `ItemRepository.java`, `OrderRepository.java`, etc. –  
+  Provide structured CRUD and query operations  
 
-**RESTful API:** Provides structured endpoints for future integration with web or mobile clients.
+### **Security**
+- `JwtAuthenticationFilter.java`, `JwtService.java`, `JwtTokenProvider.java` –  
+  Implement JWT-based authentication  
+- `SecurityConstants.java` – Defines security-related constants  
 
-**Technologies Used**
-Java, Spring Boot, Hibernate, MySQL,	Maven, Git & GitHub
+### **Services**
+- Implements business logic for all modules:  
+  `UserService.java`, `ItemService.java`, `OrderService.java`,  
+  `DeliveryService.java`, `TruckService.java`, etc.  
+
+---
+
+## **Key Highlights**
+- **Layered Architecture** – Clear separation of Controller, Service, Repository, and Model layers  
+- **Secure Authentication** – JWT tokens with refresh and validation  
+- **Scalable Design** – Easily extendable for new entities and endpoints  
+- **Data Integrity** – Validation and exception handling at the service level  
+- **API-First Approach** – Fully documented REST endpoints via Swagger  
+
+
