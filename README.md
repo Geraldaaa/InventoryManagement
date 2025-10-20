@@ -13,7 +13,6 @@ It allows for complete management of items, orders, deliveries, trucks, and user
 - **User Authentication** – Secure login/register using JWT tokens  
 - **Role-Based Access Control** – Supports roles like *Admin*, *Manager*, and *User*  
 - **RESTful APIs** with full CRUD functionality  
-- **Swagger Integration** for API documentation  
 - **MySQL Data Persistence** with **Spring Data JPA (Hibernate)**  
 
 ---
@@ -25,7 +24,6 @@ It allows for complete management of items, orders, deliveries, trucks, and user
 - **Hibernate / JPA** – ORM for database interaction  
 - **MySQL** – Relational database  
 - **Maven** – Dependency management  
-- **Swagger / OpenAPI** – API documentation  
 - **REST Architecture** – Modular and scalable backend structure  
 
 ---
@@ -72,6 +70,5 @@ It allows for complete management of items, orders, deliveries, trucks, and user
 - **Secure Authentication** – JWT tokens with refresh and validation  
 - **Scalable Design** – Easily extendable for new entities and endpoints  
 - **Data Integrity** – Validation and exception handling at the service level  
-- **API-First Approach** – Fully documented REST endpoints via Swagger  
 
 
