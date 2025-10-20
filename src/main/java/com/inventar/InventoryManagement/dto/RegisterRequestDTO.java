@@ -8,6 +8,7 @@ public class RegisterRequestDTO {
     private String password;
     private Integer age;
     private String phoneNumber;
+    private String role; // 🔹 kjo është fusha që mungonte
 
     public String getFirstName() {
         return firstName;
@@ -63,5 +64,13 @@ public class RegisterRequestDTO {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

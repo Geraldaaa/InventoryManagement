@@ -3,6 +3,7 @@ package com.inventar.InventoryManagement.dto;
 public class LoginRequestDTO {
     private String username;
     private String password;
+    private String role; // 🔹 Roli i përdoruesit (ROLE_ADMIN, ROLE_USER, ROLE_MANAGER)
 
     public String getUsername() {
         return username;
@@ -18,5 +19,13 @@ public class LoginRequestDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

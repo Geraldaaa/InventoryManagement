@@ -1,4 +1,4 @@
-package com.inventar.InventoryManagement.console;
+/*package com.inventar.InventoryManagement.console;
 
 import com.inventar.InventoryManagement.dto.OrderDTO;
 import com.inventar.InventoryManagement.dto.UserDTO;
@@ -120,3 +120,4 @@ public class ConsoleApp implements CommandLineRunner {
         }
     }
 }
+*/

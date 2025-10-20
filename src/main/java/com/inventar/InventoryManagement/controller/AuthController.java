@@ -10,6 +10,7 @@ import com.inventar.InventoryManagement.security.JwtService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
@@ -34,7 +35,16 @@ public class AuthController {
         user.setEmail(dto.getEmail());
         user.setAge(dto.getAge());
         user.setPhoneNumber(dto.getPhoneNumber());
-        user.setRole(Role.ROLE_USER);
+
+        if (dto.getRole() != null) {
+            switch (dto.getRole().toLowerCase()) {
+                case "admin" -> user.setRole(Role.ROLE_ADMIN);
+                case "manager" -> user.setRole(Role.ROLE_MANAGER);
+                default -> user.setRole(Role.ROLE_USER);
+            }
+        } else {
+            user.setRole(Role.ROLE_USER);
+        }
 
         userRepository.save(user);
 
